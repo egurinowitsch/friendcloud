@@ -1,6 +1,6 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
+    create_table(:user) do |t|
       t.string :first_name
       t.string :last_name
       t.string :profile_name
@@ -41,8 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :users, :email,                :unique => true
-    add_index :users, :reset_password_token, :unique => true
-    
+    add_index :user, :email,                :unique => true
+    add_index :user, :reset_password_token, :unique => true
   end
 end
