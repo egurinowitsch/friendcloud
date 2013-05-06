@@ -9,3 +9,9 @@ michelle:
   last_name: "Gurinowitsch"
   email: "mgurinowitsch@yahoo.com"
   profile_name: "michelleg"
+
+kevin:
+  first_name: "Kevin"
+  last_name: "Hilt"
+  email: "kevinhilt@yahoo.com"
+  profile_name: "kevinh"
