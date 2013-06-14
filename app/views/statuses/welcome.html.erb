@@ -1,5 +1,14 @@
-<div class="welcome_page">
-<h1>Welcome to Friend Cloud</h1>
+<div class="welcome_background">
 
+<h1 class="welcome-header">Welcome to Friend Cloud</h1>
+	
+	<p class="welcome-text ">
+		No matter where you are in the world, keep in touch with your friends and family with <span id="friendcloud">Friend Cloud</span>.
+	</p>
+	<%= image_tag("pic1.jpg", :border => 0, :alt => '', :title => '', :class => "pic1") %>
+	<p class="welcome-text2">
+		New to Friend Cloud? &nbsp;&nbsp;<%= link_to "Register", register_path, :class => "welcome-btns"  %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		All ready a member? &nbsp;&nbsp;<%= link_to "Log in", login_path, :class => "welcome-btns"  %>
+	</p>
 
 </div>
