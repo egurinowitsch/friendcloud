@@ -3,12 +3,6 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   should have_many (:user_friendships)
   should have_many (:friends)
-  should have_many (:pending_user_friendships)
-  should have_many (:pending_friends)
-  should have_many (:requested_user_friendships)
-  should have_many (:requested_friends)
-  should have_many (:blocked_user_friendships)
-  should have_many (:blocked_friends)
 
 
   test "a user should enter a first name" do 
@@ -63,10 +57,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "that creating friendships on a user works" do 
-    users(:eric).friends << users(:kevin)
-    users(:eric).friends.reload
-    assert users(:eric).friends.include?(users(:kevin))
+    users(:eric).pending_friends << users(:kevin)
+    users(:eric).pending_friends.reload
+    assert users(:eric).pending_friends.include?(users(:kevin))
   end
+  
   test "that calling to_param on a user returns the profile_name" do
     assert_equal "ericg", users(:eric).to_param
   end

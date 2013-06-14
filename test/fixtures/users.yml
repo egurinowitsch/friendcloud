@@ -16,3 +16,9 @@ kevin:
   last_name: "Hilt"
   email: "kevinhilt@yahoo.com"
   profile_name: "kevinh"
+
+blocked_friend:
+  first_name: 'Blocked'
+  last_name: 'Friend'
+  email: 'blocked@egurinowitsch@yahoo.com'
+  profile_name: 'youblockedme'

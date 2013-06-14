@@ -1,10 +1,15 @@
 Friendcloud::Application.routes.draw do
   get "profiles/show"
 
+ get 'root', to: 'statuses#welcome', as: :welcome
+  root to: 'statuses#welcome'
+
   as :user do
+
     get '/register', to: 'devise/registrations#new', as: :register
     get '/login', to: 'devise/sessions#new', as: :login
     get '/logout', to: 'devise/sessions#destroy', as: :logout
+    get '/users/edit', to: 'devise/registrations#edit', as: :edit
   end
 
   devise_for :users, skip: [:sessions]
@@ -15,12 +20,16 @@ Friendcloud::Application.routes.draw do
     delete "/logout" => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  resources :user_friendships
+  resources :user_friendships do
+    member do
+      put :accept
+      put :block
+    end
+  end
 
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed 
-  root to: 'statuses#index'
-
+  
   get '/:id', to: 'profiles#show', as: 'profile'
 
   # The priority is based upon order of creation:

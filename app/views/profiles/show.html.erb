@@ -1,15 +1,27 @@
+<div class="wht_background">
 <div class="page-header">
+	
+	<div>
+		<p  class="profile_img">
+      <%=  image_tag @user.gravatar_url %>
+  </p>
+     </div>
 	<h1><%= @user.full_name %></h2>
-	<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user), class: 'btn' %>
 </div>
 
+<% if signed_in? %>
+
+<% end %>
 
 <% if @statuses %>
 	<% @statuses.each do |status| %>
 		<div class="well">
 			<%= status.content %>
 			<hr />
-			<%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
+			<div class="time">
+			<%=  time_ago_in_words(status.created_at) + " ago" %>
+		</div>
 		</div>
 	<% end %>
 <% end %>
+</div>
